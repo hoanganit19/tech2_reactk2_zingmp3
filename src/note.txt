@@ -1,0 +1,45 @@
+Tổng quan về dự án 
+
+Chức năng: Clone Zing Mp3 
+
+Server: Json Server Fake API 
+
+Cấu trúc folders:
+
+1. Components: Global Components => Sử dụng chung ở nhiều modules 
+
+2. Pages: Page Components => Tương ứng với Routes
+
+3. Routes: File cấu hình Routes
+
+<Routes>
+
+    //public
+    <Route path="/" element={<Home />} />
+    <Route path="/" element={<Home />} />
+    <Route path="/" element={<Home />} />
+
+    //protected
+    <Route path="/" element={<Home />} />
+    <Route path="/" element={<Home />} />
+    <Route path="/" element={<Home />} />
+</Routes>
+
+4. Layouts
+
+- Headers
+- Footers
+- Sidebars
+- Main
+
+5. Services
+
+- Hooks 
+- Routes 
+- Redux
+
+6. Middlewares
+
+7. Assets 
+- Styles
+- Images
