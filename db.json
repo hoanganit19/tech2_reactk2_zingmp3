@@ -1,0 +1,85 @@
+{
+  "songs": [
+    {
+      "id": 1,
+      "name": "Ai chung tình được mãi",
+      "source": "",
+      "image": "https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/8/3/6/9/8369fd9f387e08f6f53e8f7009aa811e.jpg",
+      "singer": [
+        {
+          "id": 1,
+          "name": "Đinh Tùng Huy"
+        }
+      ],
+      "listen_count": 0,
+      "follow_count": 0,
+      "duration": "04:30",
+      "created_at": "2022-12-12 09:30:30",
+      "updated_at": "2022-12-12 09:30:30"
+    },
+    {
+      "id": 2,
+      "name": "Yêu vội vàng",
+      "source": "",
+      "image": "https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/8/3/6/9/8369fd9f387e08f6f53e8f7009aa811e.jpg",
+      "singer": [
+        {
+          "id": 1,
+          "name": "Đinh Tùng Huy"
+        },
+        {
+          "id": 2,
+          "name": "Lê Bảo Bình"
+        }
+      ],
+      "listen_count": 0,
+      "follow_count": 0,
+      "duration": "06:30",
+      "created_at": "2022-12-12 09:30:30",
+      "updated_at": "2022-12-12 09:30:30"
+    },
+    {
+      "id": 3,
+      "name": "Kết thúc lâu rồi",
+      "source": "",
+      "image": "https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/8/3/6/9/8369fd9f387e08f6f53e8f7009aa811e.jpg",
+      "singer": [
+        {
+          "id": 2,
+          "name": "Lê Bảo Bình"
+        }
+      ],
+      "listen_count": 0,
+      "follow_count": 0,
+      "duration": "04:30",
+      "created_at": "2022-12-12 09:30:30",
+      "updated_at": "2022-12-12 09:30:30"
+    }
+  ],
+  "keywords": [
+    {
+      "id": 1,
+      "keyword": "abc"
+    },
+    {
+      "id": 2,
+      "keyword": "abcd"
+    },
+    {
+      "keyword": "a",
+      "id": 3
+    },
+    {
+      "keyword": "yêu",
+      "id": 4
+    },
+    {
+      "keyword": "yêu vội vàng",
+      "id": 5
+    },
+    {
+      "keyword": "kết thúc lâu rồi",
+      "id": 6
+    }
+  ]
+}

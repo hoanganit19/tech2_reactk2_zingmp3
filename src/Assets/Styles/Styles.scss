@@ -123,7 +123,7 @@ html::-webkit-scrollbar {
   display: block;
 }
 
-.zing-navbar-item span {
+.zing-navbar-item .title + span {
   position: absolute;
   bottom: 12px;
   padding: 3px 6px;
@@ -304,6 +304,9 @@ html::-webkit-scrollbar {
 }
 .recently .header h1 {
   font-size: 14px;
+}
+.recently .singer {
+  margin-right: 5px;
 }
 .show {
   display: none;
@@ -2897,6 +2900,10 @@ html::-webkit-scrollbar {
 }
 .color-title {
   color: white;
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
 }
 .action-controls {
   color: var(--color-pink);
