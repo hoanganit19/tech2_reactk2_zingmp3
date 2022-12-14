@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import IonIcon from "@reacticons/ionicons";
 import SearchForm from "./SearchForm";
+import clsx from "clsx";
+import { useSelector, useDispatch } from "react-redux";
+import { getUser, authSelector } from "../../Pages/Auth/authSlice";
+import { Link } from "react-router-dom";
 function Header(props) {
+  const [isHide, setHide] = useState(true);
+
+  const dispatch = useDispatch();
+
+  const auth = useSelector(authSelector);
+
+  const { userLogin, isAuth } = auth;
+
+  const handleToggleProfile = () => {
+    setHide(isHide ? false : true);
+  };
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
+
+  console.log(isAuth);
+
   return (
     <div className="zing-header">
       <div className="zing-left ">
@@ -244,10 +266,35 @@ function Header(props) {
         </div>
         <div className="zing-right-item">
           <img
+            onClick={handleToggleProfile}
             className="avatar"
             src="https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-1/294425669_753282749214570_5402023003580552129_n.jpg?stp=c0.52.320.320a_dst-jpg_p320x320&_nc_cat=100&ccb=1-7&_nc_sid=7206a8&_nc_ohc=i39GJTJDFJwAX9chCF_&tn=0PIfRc76YEetMJ90&_nc_ht=scontent.fhan14-2.fna&oh=00_AfBte2JitH1nz4fQMlz3U-S9O9aaqgVNFA6uu4wFcyoVJg&oe=639CC066"
             alt=""
           />
+        </div>
+        <div className={clsx("profile", isHide && "hide")}>
+          {isAuth ? (
+            <>
+              <p>Chào: {userLogin.name}</p>
+              <ul>
+                <li>
+                  <a href="">Cá nhân</a>
+                </li>
+                <li>
+                  <Link to="/dang-xuat">Đăng xuất</Link>
+                </li>
+              </ul>
+            </>
+          ) : (
+            <ul>
+              <li>
+                <Link to="/dang-nhap">Đăng nhập</Link>
+              </li>
+              <li>
+                <a href="">Đăng ký</a>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
     </div>

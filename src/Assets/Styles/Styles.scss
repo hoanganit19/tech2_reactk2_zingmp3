@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   transition: all linear 0.3s;
+  outline: none;
 }
 html {
   font-family: Arial, Helvetica, sans-serif;
@@ -220,6 +221,27 @@ html::-webkit-scrollbar {
   display: flex;
   justify-content: space-between;
   z-index: 10;
+  .profile {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    min-width: 200px;
+    color: #333;
+    background: bisque;
+    padding: 10px;
+    text-align: left;
+
+    p {
+      margin-bottom: 10px;
+    }
+    li {
+      margin-bottom: 10px;
+      a {
+        color: #333;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .zing-left {
@@ -337,6 +359,7 @@ html::-webkit-scrollbar {
   margin: 0 59px;
   align-items: center;
   text-align: center;
+  position: relative;
 }
 .zing-right-item {
   position: relative;

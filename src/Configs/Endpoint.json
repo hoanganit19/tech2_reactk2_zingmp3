@@ -1,5 +1,7 @@
 {
     "songs": "/songs",
     "singer": "/singer",
-    "keywords": "/keywords"
+    "keywords": "/keywords",
+    "login": "/login",
+    "users": "/640/users"
 }

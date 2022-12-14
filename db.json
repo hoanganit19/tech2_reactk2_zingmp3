@@ -88,6 +88,13 @@
       "password": "$2a$10$n3Ns80QN.UrtpowXVBpiiuaBh.i1V5nzous6fMXcrCmc74xsrXqim",
       "name": "Hoàng An",
       "id": 1
+    },
+
+    {
+      "email": "hoanganit@gmail.com",
+      "password": "$2a$10$n3Ns80QN.UrtpowXVBpiiuaBh.i1V5nzous6fMXcrCmc74xsrXqim",
+      "name": "Hoàng An",
+      "id": 2
     }
   ]
 }
