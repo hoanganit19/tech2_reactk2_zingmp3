@@ -1,0 +1,10 @@
+Authentication => Đăng nhập, đăng ký, quên mật khẩu, kích hoạt tài khoản 
+
+Server: Api => Logic đăng nhập do server xử lý => Token
+
+Client: Gửi email, pass qua API => Nhận token => Lưu vào localStorage
+
+Cách triển khai Authentication:
+
+- Tự xây dựng từ đầu
+- Dùng qua các bên thứ 3: Firebase, Auth0,...
