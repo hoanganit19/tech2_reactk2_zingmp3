@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Categories from "../Pages/Categories/Categories";
 import Login from "../Pages/Auth/Login";
 import Logout from "../Pages/Auth/Logout";
+
 export const publicRoutes = (
   <>
     <Route path="/" element={<Home />} end />

@@ -96,5 +96,56 @@
       "name": "Hoàng An",
       "id": 2
     }
+  ],
+
+  "categories": [
+    {
+      "id": 1,
+      "name": "Khúc nhạc vui",
+      "image": "https://photo-zmp3.zmdcdn.me/cover/0/9/0/9/09090b19d3417d364547db3027d141d5.jpg",
+      "created_at": "2022-12-12 05:00:30",
+      "update_at": "2022-12-12 05:00:30",
+      "playlists": [
+        {
+          "id": 1,
+          "name": "Khởi động ngày mới",
+          "image": "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/3/5/3/8/3538565766aee9c4a61c1ff4aeb5a07d.jpg",
+          "created_at": "2022-12-12 05:00:30",
+          "update_at": "2022-12-12 05:00:30"
+        },
+
+        {
+          "id": 2,
+          "name": "Những ngày vui",
+          "image": "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/3/5/3/8/3538565766aee9c4a61c1ff4aeb5a07d.jpg",
+          "created_at": "2022-12-12 05:00:30",
+          "update_at": "2022-12-12 05:00:30"
+        },
+
+        {
+          "id": 3,
+          "name": "Cho ngày thêm tươi",
+          "image": "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/3/5/3/8/3538565766aee9c4a61c1ff4aeb5a07d.jpg",
+          "created_at": "2022-12-12 05:00:30",
+          "update_at": "2022-12-12 05:00:30"
+        }
+      ]
+    },
+
+    {
+      "id": 2,
+      "name": "Running",
+      "image": "https://photo-zmp3.zmdcdn.me/cover/0/9/0/9/09090b19d3417d364547db3027d141d5.jpg",
+      "created_at": "2022-12-12 05:00:30",
+      "update_at": "2022-12-12 05:00:30"
+    },
+
+    {
+      "id": 3,
+      "name": "Tập trung",
+      "image": "https://photo-zmp3.zmdcdn.me/cover/0/9/0/9/09090b19d3417d364547db3027d141d5.jpg",
+      "created_at": "2022-12-12 05:00:30",
+      "update_at": "2022-12-12 05:00:30"
+    }
   ]
 }
