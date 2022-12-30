@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Header from "../Header/Header";
 import RouteCore from "../../Services/Routes/RouteCore";
 import Sidebar from "../Sidebar/Sidebar";
+import Player from "../../Components/Player/Player";
 
 function Main(props) {
   return (
@@ -18,6 +19,7 @@ function Main(props) {
             </div>
           </div>
         </div>
+        <Player />
       </div>
     </div>
   );

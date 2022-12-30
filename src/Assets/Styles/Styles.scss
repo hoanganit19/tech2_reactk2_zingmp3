@@ -1238,6 +1238,10 @@ html::-webkit-scrollbar {
   background-color: var(--color-white);
   z-index: 1;
   border-radius: 20px;
+  transition: none !important;
+  .progressCurrent{
+    transition: none !important;
+  }
 }
 
 .time-begin,
