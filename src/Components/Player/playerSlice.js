@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  isPlay: false,
+  playStatus: "pause",
+  elementActive: "body",
 };
 
 const playerSlice = createSlice({
@@ -9,9 +10,14 @@ const playerSlice = createSlice({
   initialState: initialState,
   reducers: {
     doPlay: (state, action) => {
-      state.isPlay = action.payload;
+      state.playStatus = action.payload;
+    },
+    doActiveElement: (state, action) => {
+      state.elementActive = action.payload;
     },
   },
 });
 
 export const playerReducer = playerSlice.reducer;
+export const playerActions = playerSlice.actions;
+export const playerSelector = (state) => state.player;

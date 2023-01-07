@@ -2,10 +2,18 @@ import React, { useRef, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import IonIcon from "@reacticons/ionicons";
 import useTime from "../../Services/Hooks/useTime";
+import { playerActions } from "./playerSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { playerSelector } from "./playerSlice";
+import clsx from "clsx";
+import Audio from "./Audio";
 
 let isMouseDown = false;
 let initialClientX = 0;
 let initialRate = 0;
+let currentTime = 0;
+
+const { doPlay, doActiveElement } = playerActions;
 
 function Player(props) {
   const progressRef = useRef();
@@ -15,6 +23,12 @@ function Player(props) {
   const [duration, setDuration] = useState(0);
 
   const { getMins } = useTime();
+
+  const dispatch = useDispatch();
+
+  const player = useSelector(playerSelector);
+
+  const { playStatus, elementActive } = useSelector(playerSelector);
 
   useEffect(() => {
     if (duration > 0) {
@@ -29,8 +43,16 @@ function Player(props) {
       });
     }
 
-    console.log("effect");
+    //console.log("effect");
   }, [duration]);
+
+  useEffect(() => {
+    document.addEventListener("keyup", (e) => {
+      if (e.code === "Space" && elementActive === "player") {
+        handlePlay();
+      }
+    });
+  }, [elementActive]);
 
   const handleProgressTimer = (e) => {
     //Chỉ cho phép bấm chuột trái
@@ -45,7 +67,7 @@ function Player(props) {
 
       initialRate = rate;
 
-      const currentTime = getCurrentTime(rate);
+      currentTime = getCurrentTime(rate);
 
       progressRef.current.previousElementSibling.children[0].innerText =
         getMins(currentTime);
@@ -75,7 +97,7 @@ function Player(props) {
     }
 
     progressRef.current.children[0].style.width = `${rate}%`;
-    const currentTime = getCurrentTime(rate);
+    currentTime = getCurrentTime(rate);
 
     progressRef.current.previousElementSibling.children[0].innerText =
       getMins(currentTime);
@@ -91,15 +113,18 @@ function Player(props) {
   };
 
   const handleMouseUp = () => {
-    isMouseDown = false;
+    if (isMouseDown) {
+      isMouseDown = false;
 
-    document.body.style.userSelect = "text";
+      document.body.style.userSelect = "text";
+
+      audioRef.current.setCurrentTime(currentTime);
+    }
   };
 
   const handleLoadAudio = () => {
-    const duration = audioRef.current.duration;
+    const duration = audioRef.current.getDuration();
     setDuration(duration);
-    console.log("loaded");
   };
 
   const getCurrentTime = (rate) => {
@@ -107,15 +132,41 @@ function Player(props) {
     return currentTime;
   };
 
+  const handlePlay = () => {
+    if (audioRef.current.getPauseStatus()) {
+      audioRef.current.play();
+      dispatch(doPlay("play"));
+    } else {
+      audioRef.current.pause();
+      dispatch(doPlay("pause"));
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    const currentTime = audioRef.current.getCurrentTime();
+    progressRef.current.previousElementSibling.children[0].innerText =
+      getMins(currentTime);
+
+    const rate = (currentTime / duration) * 100;
+
+    if (!isMouseDown) {
+      progressRef.current.children[0].style.width = `${rate}%`;
+    }
+  };
+
+  const handleClickPlayerArea = (e) => {
+    e.stopPropagation();
+    dispatch(doActiveElement("player"));
+  };
+
   return (
-    <div className="zing-controls">
-      <div className="audio">
-        <audio
-          src="/mp3/yeu-voi-vang-remix.mp3"
-          ref={audioRef}
-          onLoadedData={handleLoadAudio}
-        />
-      </div>
+    <div className="zing-controls" onClick={handleClickPlayerArea}>
+      <Audio
+        onLoadedData={handleLoadAudio}
+        onTimeUpdate={handleTimeUpdate}
+        ref={audioRef}
+      />
+
       <div className="l-4 m-3 c-9">
         <div className=" zing-control-left zing-control-left-action">
           <div className="control-left-img " style={{ marginLeft: 0 }}>
@@ -174,17 +225,24 @@ function Player(props) {
               <i className="fa-solid fa-backward-step" />
             </div>
             <div className="play c-0">
-              <div className="play-music control-icon action-hover  color-title">
+              <div
+                className="play-music control-icon action-hover color-title"
+                onClick={handlePlay}
+              >
                 <ion-icon>
                   <IonIcon
-                    name="play-outline"
+                    name={clsx(
+                      playStatus === "play"
+                        ? "pause-circle-outline"
+                        : "play-outline"
+                    )}
                     role="img"
                     className="md hydrated"
                     aria-label="play outline"
                   />
                 </ion-icon>
               </div>
-              <div className="pause-music control-icon action-hover  color-title ">
+              {/* <div className="pause-music control-icon action-hover  color-title ">
                 <ion-icon>
                   <IonIcon
                     name="pause-circle-outline"
@@ -193,7 +251,7 @@ function Player(props) {
                     aria-label="pause circle outline"
                   />
                 </ion-icon>
-              </div>
+              </div> */}
             </div>
             <div className="icon-control-right control-icon action-hover color-title ">
               <i className="fa-solid fa-forward-step" />
